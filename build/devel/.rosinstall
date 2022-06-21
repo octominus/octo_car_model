@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/setup.sh

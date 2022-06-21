@@ -1,0 +1,8 @@
+prefix=/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel
+
+Name: robot_planner
+Description: Description of robot_planner
+Version: 0.0.0
+Cflags: -I/usr/include/eigen3
+Libs: -L${prefix}/lib 
+Requires: roscpp geometry_msgs nav_msgs rospy std_msgs tf
