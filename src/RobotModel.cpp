@@ -4,14 +4,18 @@
 
 #include "RobotModel.h"
 
-DynamicModel::DynamicModel(float vel_d) : _velocity_d(vel_d) {
-    float output = 0.0;
-    output = DrivingController();
-    std::cout << "Force: " << output << std::endl;
+DynamicModel::DynamicModel() {
+    // default code
 }
 
-float DynamicModel::DrivingController() {
-    float error = _velocity_d - _velocity_c;
+float DynamicModel::StateMachine(float d_spd) {
+    float force = 0.0;
+    force = DrivingController(d_spd);
+    _velocity_c = ForcetVelocityConverter(force);
+}
+
+float DynamicModel::DrivingController(float spd_d) {
+    float error = spd_d - _velocity_c;
     float f_engine = 0.0, f_brake = 0.0;
     float injection = 0.0, brake = 0.0;
     // Şimdilik sadece ileri vites durumu için
@@ -19,10 +23,12 @@ float DynamicModel::DrivingController() {
     if (!isReverse && error < 0.0) {
         brake = BrakeController(error);
         f_brake = BrakeForceGenerator(brake);
+        std::cout << "(Brake) Error: " << error << std::endl;
         return f_brake;
     } else if (!isReverse && error > 0.0) {
         injection = InjectionController(error);
         f_engine = MotorForceGenerator(injection);
+        std::cout << "(Engine) Error: " << error << std::endl;
         return f_engine;
     }
 }
@@ -58,12 +64,14 @@ float DynamicModel::MotorForceGenerator(float e_spd) {
 }
 
 float DynamicModel::BrakeForceGenerator(float b_frc) {
-    return -100.0;
+    return -1000.0;
 }
 
-float DynamicModel::ForcetVelocityConverter() {
+float DynamicModel::ForcetVelocityConverter(float f) {
     // a = x_d_d
     // x_d_d = (x_d - x_d_last) / T_s
     // x_d = (x_d_d * T_s) + x_d_last
-    return 0.0;
+    _fav.x_d_d = f / _mass;
+    _fav.x_d = (_fav.x_d_d * _fav.T_s) + _fav.x_d_last;
+    return _fav.x_d;
 }

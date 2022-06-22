@@ -18,22 +18,31 @@
 
 class DynamicModel {
 public:
-    explicit DynamicModel(float vel_d);
+    explicit DynamicModel();
+    float StateMachine(float d_spd);
     float BrakeController(float err);
     float InjectionController(float err);
-    float DrivingController();
+    float DrivingController(float spd_d);
     float MotorForceGenerator(float e_spd);
     float BrakeForceGenerator(float b_frc);
-    float ForcetVelocityConverter();
+    float ForcetVelocityConverter(float f);
 private:
     // Some constants
     float _gear_ratio = 5.0;
-    float _velocity_c = 12.8;
+    float _velocity_c = 0.0;
     float _velocity_d = 0.0;
     float _T_max = 2100.0; // Nm
     float _w_max = 136.1356815; // rad/s
     float _Beta = 0.4;
     float _velocity_max = 16.8; // 60 km/h = 16.8 m/s
+    float _mass = 8000; // kg
+    struct {
+        float x_d_d     = 0.0; // acceleration
+        float x_d       = 0.0; // velocity
+        float x_d_last  = 0.0; // last velocity
+        float T_s       = 0.1; // time
+    } _fav;
+
 };
 
 class KinematicModel {
