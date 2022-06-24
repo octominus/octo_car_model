@@ -6,8 +6,13 @@
 },
 {
   "directory": "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"robot_planner\\\" -I/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/opt/ros/melodic/include/ompl-1.4 -I/usr/include/eigen3  -Wall -Wextra -g -O3   -std=gnu++14 -o CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o -c /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotModel.cpp",
-  "file": "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotModel.cpp"
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"robot_planner\\\" -I/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/opt/ros/melodic/include/ompl-1.4 -I/usr/include/eigen3  -Wall -Wextra -g -O3   -std=gnu++14 -o CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o -c /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotDynamicModel.cpp",
+  "file": "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotDynamicModel.cpp"
+},
+{
+  "directory": "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"robot_planner\\\" -I/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/opt/ros/melodic/include/ompl-1.4 -I/usr/include/eigen3  -Wall -Wextra -g -O3   -std=gnu++14 -o CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o -c /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotKinematicModel.cpp",
+  "file": "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotKinematicModel.cpp"
 },
 {
   "directory": "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/gtest/googlemock",

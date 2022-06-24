@@ -947,32 +947,59 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-src/RobotModel.o: src/RobotModel.cpp.o
+src/RobotDynamicModel.o: src/RobotDynamicModel.cpp.o
 
-.PHONY : src/RobotModel.o
+.PHONY : src/RobotDynamicModel.o
 
 # target to build an object file
-src/RobotModel.cpp.o:
-	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o
-.PHONY : src/RobotModel.cpp.o
+src/RobotDynamicModel.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o
+.PHONY : src/RobotDynamicModel.cpp.o
 
-src/RobotModel.i: src/RobotModel.cpp.i
+src/RobotDynamicModel.i: src/RobotDynamicModel.cpp.i
 
-.PHONY : src/RobotModel.i
+.PHONY : src/RobotDynamicModel.i
 
 # target to preprocess a source file
-src/RobotModel.cpp.i:
-	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotModel.cpp.i
-.PHONY : src/RobotModel.cpp.i
+src/RobotDynamicModel.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.i
+.PHONY : src/RobotDynamicModel.cpp.i
 
-src/RobotModel.s: src/RobotModel.cpp.s
+src/RobotDynamicModel.s: src/RobotDynamicModel.cpp.s
 
-.PHONY : src/RobotModel.s
+.PHONY : src/RobotDynamicModel.s
 
 # target to generate assembly for a file
-src/RobotModel.cpp.s:
-	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotModel.cpp.s
-.PHONY : src/RobotModel.cpp.s
+src/RobotDynamicModel.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.s
+.PHONY : src/RobotDynamicModel.cpp.s
+
+src/RobotKinematicModel.o: src/RobotKinematicModel.cpp.o
+
+.PHONY : src/RobotKinematicModel.o
+
+# target to build an object file
+src/RobotKinematicModel.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o
+.PHONY : src/RobotKinematicModel.cpp.o
+
+src/RobotKinematicModel.i: src/RobotKinematicModel.cpp.i
+
+.PHONY : src/RobotKinematicModel.i
+
+# target to preprocess a source file
+src/RobotKinematicModel.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.i
+.PHONY : src/RobotKinematicModel.cpp.i
+
+src/RobotKinematicModel.s: src/RobotKinematicModel.cpp.s
+
+.PHONY : src/RobotKinematicModel.s
+
+# target to generate assembly for a file
+src/RobotKinematicModel.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.s
+.PHONY : src/RobotKinematicModel.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -1074,9 +1101,12 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... src/RobotModel.o"
-	@echo "... src/RobotModel.i"
-	@echo "... src/RobotModel.s"
+	@echo "... src/RobotDynamicModel.o"
+	@echo "... src/RobotDynamicModel.i"
+	@echo "... src/RobotDynamicModel.s"
+	@echo "... src/RobotKinematicModel.o"
+	@echo "... src/RobotKinematicModel.i"
+	@echo "... src/RobotKinematicModel.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

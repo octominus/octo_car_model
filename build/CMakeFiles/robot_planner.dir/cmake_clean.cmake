@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/robot_planner.dir/src/main.cpp.o"
-  "CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o"
+  "CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o"
+  "CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o"
   "devel/lib/robot_planner/robot_planner.pdb"
   "devel/lib/robot_planner/robot_planner"
 )

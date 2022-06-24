@@ -16,18 +16,27 @@ int main(int argc, char **argv) {
     ros::Publisher chatter_pub = n.advertise<std_msgs::Float32>("chatter", 1000);
     ros::Rate loop_rate(10); // 10 Hz -> 0.1 sn
     DynamicModel Robot;
-    float velocity = 0.0;
+    uint vel_change = 0;
+    float des_vel = 16.0;
     while (ros::ok())
     {
         /* code */
-        Robot.StateMachine(10.0);
         std_msgs::Float32 float_msg;
-        float_msg.data = velocity;
-        ROS_INFO("Velocity: %f", float_msg.data);
+        float_msg.data = Robot.StateMachine(des_vel);
+        // ROS_INFO("Velocity: %f", float_msg.data * 3.6);
+        if(vel_change > 150) {
+            std::cout << "Velocity Changed!" << std::endl;
+            if (des_vel > 15.0) {
+                des_vel = 5.0;
+            } else {
+                des_vel = 16.0;
+            }
+            vel_change = 0;
+        }
+        vel_change++;
         chatter_pub.publish(float_msg);
         ros::spinOnce();
         loop_rate.sleep();
-        ++velocity;
     }
     return 0;
 }

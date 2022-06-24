@@ -81,40 +81,66 @@ CMakeFiles/robot_planner.dir/src/main.cpp.o.provides: CMakeFiles/robot_planner.d
 CMakeFiles/robot_planner.dir/src/main.cpp.o.provides.build: CMakeFiles/robot_planner.dir/src/main.cpp.o
 
 
-CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o: CMakeFiles/robot_planner.dir/flags.make
-CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o: ../src/RobotModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o -c /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotModel.cpp
+CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o: CMakeFiles/robot_planner.dir/flags.make
+CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o: ../src/RobotDynamicModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o -c /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotDynamicModel.cpp
 
-CMakeFiles/robot_planner.dir/src/RobotModel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_planner.dir/src/RobotModel.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotModel.cpp > CMakeFiles/robot_planner.dir/src/RobotModel.cpp.i
+CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotDynamicModel.cpp > CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.i
 
-CMakeFiles/robot_planner.dir/src/RobotModel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_planner.dir/src/RobotModel.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotModel.cpp -o CMakeFiles/robot_planner.dir/src/RobotModel.cpp.s
+CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotDynamicModel.cpp -o CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.s
 
-CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o.requires:
+CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o.requires:
 
-.PHONY : CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o.requires
+.PHONY : CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o.requires
 
-CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o.provides: CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o.requires
-	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o.provides.build
-.PHONY : CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o.provides
+CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o.provides: CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o.requires
+	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o.provides.build
+.PHONY : CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o.provides
 
-CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o.provides.build: CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o
+CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o.provides.build: CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o
+
+
+CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o: CMakeFiles/robot_planner.dir/flags.make
+CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o: ../src/RobotKinematicModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o -c /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotKinematicModel.cpp
+
+CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotKinematicModel.cpp > CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.i
+
+CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotKinematicModel.cpp -o CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.s
+
+CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o.requires:
+
+.PHONY : CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o.requires
+
+CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o.provides: CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o.requires
+	$(MAKE) -f CMakeFiles/robot_planner.dir/build.make CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o.provides.build
+.PHONY : CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o.provides
+
+CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o.provides.build: CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o
 
 
 # Object files for target robot_planner
 robot_planner_OBJECTS = \
 "CMakeFiles/robot_planner.dir/src/main.cpp.o" \
-"CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o"
+"CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o" \
+"CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o"
 
 # External object files for target robot_planner
 robot_planner_EXTERNAL_OBJECTS =
 
 devel/lib/robot_planner/robot_planner: CMakeFiles/robot_planner.dir/src/main.cpp.o
-devel/lib/robot_planner/robot_planner: CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o
+devel/lib/robot_planner/robot_planner: CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o
+devel/lib/robot_planner/robot_planner: CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o
 devel/lib/robot_planner/robot_planner: CMakeFiles/robot_planner.dir/build.make
 devel/lib/robot_planner/robot_planner: /opt/ros/melodic/lib/libtf.so
 devel/lib/robot_planner/robot_planner: /opt/ros/melodic/lib/libtf2_ros.so
@@ -141,7 +167,7 @@ devel/lib/robot_planner/robot_planner: /usr/lib/x86_64-linux-gnu/libpthread.so
 devel/lib/robot_planner/robot_planner: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
 devel/lib/robot_planner/robot_planner: /opt/ros/melodic/lib/libompl.so
 devel/lib/robot_planner/robot_planner: CMakeFiles/robot_planner.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable devel/lib/robot_planner/robot_planner"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable devel/lib/robot_planner/robot_planner"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robot_planner.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -150,7 +176,8 @@ CMakeFiles/robot_planner.dir/build: devel/lib/robot_planner/robot_planner
 .PHONY : CMakeFiles/robot_planner.dir/build
 
 CMakeFiles/robot_planner.dir/requires: CMakeFiles/robot_planner.dir/src/main.cpp.o.requires
-CMakeFiles/robot_planner.dir/requires: CMakeFiles/robot_planner.dir/src/RobotModel.cpp.o.requires
+CMakeFiles/robot_planner.dir/requires: CMakeFiles/robot_planner.dir/src/RobotDynamicModel.cpp.o.requires
+CMakeFiles/robot_planner.dir/requires: CMakeFiles/robot_planner.dir/src/RobotKinematicModel.cpp.o.requires
 
 .PHONY : CMakeFiles/robot_planner.dir/requires
 

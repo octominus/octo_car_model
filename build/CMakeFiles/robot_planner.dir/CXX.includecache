@@ -21,8 +21,14 @@ iostream
 -
 cmath
 -
+vector
+-
 
-/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotModel.cpp
+/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotDynamicModel.cpp
+RobotModel.h
+/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotModel.h
+
+/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotKinematicModel.cpp
 RobotModel.h
 /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/src/RobotModel.h
 

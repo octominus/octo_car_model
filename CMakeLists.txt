@@ -44,7 +44,8 @@ catkin_package(
 set(
         sources
         src/main.cpp
-        src/RobotModel.cpp
+        src/RobotDynamicModel.cpp
+        src/RobotKinematicModel.cpp
 )
 
 add_executable(${PROJECT_NAME} ${sources})
