@@ -156,6 +156,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib/cmake/eigen3/Eigen3Config.cmake"
   "/usr/lib/cmake/eigen3/Eigen3ConfigVersion.cmake"
   "/usr/lib/cmake/eigen3/Eigen3Targets.cmake"
+  "/usr/lib/cmake/xtensor/xtensorConfig.cmake"
+  "/usr/lib/cmake/xtensor/xtensorConfigVersion.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake"

@@ -19,6 +19,7 @@ find_package(
 
 find_package(Eigen3 REQUIRED)
 find_package(ompl REQUIRED)
+find_package(xtensor REQUIRED)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -27,6 +28,7 @@ include_directories(
         ${catkin_INCLUDE_DIRS}
         ${OMPL_INCLUDE_DIRS}
         ${EIGEN3_INCLUDE_DIR}
+        ${xtensor_INCLUDE_DIRS}
 )
 
 catkin_package(
@@ -54,4 +56,5 @@ target_link_libraries(
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         ${OMPL_LIBRARIES}
+        ${xtensor_LIBRARIES}
 )

@@ -5,6 +5,8 @@
 #ifndef WS_DRIVE_ROBOT_ROBOTMODEL_H
 #define WS_DRIVE_ROBOT_ROBOTMODEL_H
 
+#define PI 3.14159265359
+
 // ROS Files
 #include <ros/ros.h>
 #include <nav_msgs/Path.h>
@@ -17,7 +19,11 @@
 #include <cmath>
 #include <vector>
 
-#define PI 3.14159265359
+// need to install xtensor
+// sudo apt-get install xtensor-dev
+// https://xtensor.readthedocs.io/en/latest/numpy.html
+
+#include <xtensor/xarray.hpp>
 
 class DynamicModel {
 public:
