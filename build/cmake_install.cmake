@@ -129,7 +129,46 @@ file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/octominus/Projects/
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_planner/msg" TYPE FILE FILES
+    "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/msg/path_result.msg"
+    "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/msg/data_result.msg"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_planner/cmake" TYPE FILE FILES "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/catkin_generated/installspace/robot_planner-msg-paths.cmake")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/include/robot_planner")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/share/roseus/ros/robot_planner")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/share/common-lisp/ros/robot_planner")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/share/gennodejs/ros/robot_planner")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/lib/python2.7/dist-packages/robot_planner")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/lib/python2.7/dist-packages/robot_planner")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/catkin_generated/installspace/robot_planner.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_planner/cmake" TYPE FILE FILES "/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/catkin_generated/installspace/robot_planner-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

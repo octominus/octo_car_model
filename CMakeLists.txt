@@ -19,7 +19,7 @@ find_package(
 
 find_package(Eigen3 REQUIRED)
 find_package(ompl REQUIRED)
-find_package(xtensor REQUIRED)
+find_package(LAPACK REQUIRED)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -28,19 +28,31 @@ include_directories(
         ${catkin_INCLUDE_DIRS}
         ${OMPL_INCLUDE_DIRS}
         ${EIGEN3_INCLUDE_DIR}
-        ${xtensor_INCLUDE_DIRS}
+)
+
+add_message_files(
+  FILES
+  path_result.msg
+  data_result.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
 )
 
 catkin_package(
         CATKIN_DEPENDS
         roscpp
         geometry_msgs
+        message_runtime
         nav_msgs
         rospy
         std_msgs
         tf
         DEPENDS
         EIGEN3
+        LAPACK
 )
 
 set(
@@ -56,5 +68,4 @@ target_link_libraries(
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         ${OMPL_LIBRARIES}
-        ${xtensor_LIBRARIES}
 )

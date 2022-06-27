@@ -4,9 +4,6 @@
 
 #ifndef WS_DRIVE_ROBOT_ROBOTMODEL_H
 #define WS_DRIVE_ROBOT_ROBOTMODEL_H
-
-#define PI 3.14159265359
-
 // ROS Files
 #include <ros/ros.h>
 #include <nav_msgs/Path.h>
@@ -24,6 +21,14 @@
 // https://xtensor.readthedocs.io/en/latest/numpy.html
 
 #include <xtensor/xarray.hpp>
+#include <xtensor/xadapt.hpp>
+#include <xtensor/xio.hpp>
+#include <xtensor/xsort.hpp>
+#include <xtensor-blas/xlinalg.hpp>
+
+#define PI 3.14159265359
+
+typedef xt::xarray<float> f_array;
 
 class DynamicModel {
 public:
@@ -66,18 +71,20 @@ private:
 class KinematicModel {
 public:
     explicit KinematicModel(float x, float y, float v, float yaw);
+    struct state {
+        float x;
+        float y;
+        float v;
+        float yaw;
+    };
     void UpdateStates(float accel, float delta);
     float NormalizeAngle(float angle);
     float SpeedController(float vel_d, float vel_c);
-    std::vector<float> KinematicController(std::vector<float> curr_x, std::vector<float> curr_y, std::vector<float> curr_yaw, uint idx_last);
+    std::vector<float> KinematicController(struct state st, std::vector<float> cx, std::vector<float> cy, std::vector<float> cyaw, uint idx_last);
+    std::vector<float> CalculateTargetIndex(struct state st, std::vector<float> cx, std::vector<float> cy);
 private:
     // Some constants
-    struct {
-        float x = 0.0;
-        float y = 0.0;
-        float v = 0.0; // velocity
-        float yaw = 0.0;
-    } _state;
+    struct state _state;
     float _T_s = 0.1; // seconds
     float _car_wb = 3.6; // meters
     float _cntrl_gain = 0.5;

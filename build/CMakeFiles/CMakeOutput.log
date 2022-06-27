@@ -659,3 +659,31 @@ Linking C executable cmTC_984ec
 make[1]: Leaving directory '/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the function sgemm_ exists passed with the following output:
+Change Dir: /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_474e3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_474e3.dir/build.make CMakeFiles/cmTC_474e3.dir/build
+make[1]: Entering directory '/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_474e3.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTC_474e3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_474e3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_474e3.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sgemm_    CMakeFiles/cmTC_474e3.dir/CheckFunctionExists.c.o  -o cmTC_474e3 /usr/lib/x86_64-linux-gnu/libblas.so 
+make[1]: Leaving directory '/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function cheev_ exists passed with the following output:
+Change Dir: /home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_34dbc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_34dbc.dir/build.make CMakeFiles/cmTC_34dbc.dir/build
+make[1]: Entering directory '/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_34dbc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cheev_   -o CMakeFiles/cmTC_34dbc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_34dbc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_34dbc.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_34dbc.dir/CheckFunctionExists.c.o  -o cmTC_34dbc /usr/lib/x86_64-linux-gnu/liblapack.so /usr/lib/x86_64-linux-gnu/libblas.so 
+make[1]: Leaving directory '/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/CMakeFiles/CMakeTmp'
+
+

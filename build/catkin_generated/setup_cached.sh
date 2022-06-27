@@ -11,5 +11,6 @@ export CMAKE_PREFIX_PATH="/home/octominus/Projects/Robotic/ws_drive_robot/src/ro
 export LD_LIBRARY_PATH="/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build'
+export PYTHONPATH="/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES='/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner/build/devel/share/common-lisp'
 export ROS_PACKAGE_PATH="/home/octominus/Projects/Robotic/ws_drive_robot/src/robot_planner:$ROS_PACKAGE_PATH"
