@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(robot_planner)
+project(octo_car_model)
 
 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -O3")
@@ -32,8 +32,6 @@ include_directories(
 
 add_message_files(
   FILES
-  path_result.msg
-  data_result.msg
 )
 
 generate_messages(

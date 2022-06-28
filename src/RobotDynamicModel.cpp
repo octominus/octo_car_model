@@ -17,7 +17,7 @@ float DynamicModel::StateMachine(float d_spd) {
 
 float DynamicModel::DrivingController(float spd_d) {
     float error = spd_d - _velocity_c;
-    float f_engine = 0.0, f_brake = 0.0;
+    float f_engine = 0.0, f_brake = 0.0, force = 0.0;
     float injection = 0.0, brake = 0.0;
     // Şimdilik sadece ileri vites durumu için
     bool isReverse = (spd_d < 0);
@@ -25,13 +25,14 @@ float DynamicModel::DrivingController(float spd_d) {
         brake = BrakeController(error);
         f_brake = BrakeForceGenerator(brake);
         //std::cout << "(Brake) Force: " << f_brake << std::endl;
-        return f_brake;
+        force = f_brake;
     } else if (!isReverse && error > 0.0) {
         injection = InjectionController(error);
         f_engine = MotorForceGenerator(injection);
         //std::cout << "(Engine) Force: " << f_engine << std::endl;
-        return f_engine;
+        force = f_engine;
     }
+    return force;
 }
 
 float DynamicModel::InjectionController(float err) {

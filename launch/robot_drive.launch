@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="octo_car_model" type="octo_car_model" name="octo_car_model"  output="screen"/>
+</launch>

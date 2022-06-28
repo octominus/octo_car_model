@@ -7,15 +7,13 @@
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
+#include <nav_msgs/Path.h>
 
 #include "RobotModel.h"
-#include "robot_planner/path_result.h"
-#include "robot_planner/data_result.h"
 
-void chatterCallback(const robot_planner::path_result::ConstPtr& results) {
-    robot_planner::data_result result = results->result[0];
-    float cx = result.cx;
-    ROS_INFO("I heard: [%f]", cx);
+void PathCallback(const nav_msgs::Path results) {
+    //ROS_INFO("First Element: [%f]", results.poses[0].pose.position.x);
+    std::cout << results.poses[0].pose.position.x << std::endl;
 }
 
 int main(int argc, char **argv) {
@@ -23,15 +21,23 @@ int main(int argc, char **argv) {
     KinematicModel Robot_Kinematic(0, 0, 0, 0);
 
     float des_vel = 10.0; // m/s
+    bool isReach = 0, newPath = 0;
 
-    ros::Rate loop_rate(10); // 10 Hz -> 0.1 sn
-
-    ros::init(argc, argv, "robot_drive");
+    std::cout << "Desired speed: " << des_vel << std::endl;
+    ros::init(argc, argv, "octo_car_model");
+    std::cout << "Robot drive node status: OK!" << std::endl;
     ros::NodeHandle n;
-    ros::Subscriber sub = n.subscribe("/drive_data", 1000, chatterCallback);
-
-    ros::spinOnce();
-    loop_rate.sleep();
+    ros::Subscriber sub = n.subscribe("/rrt_star_server/exact_path", 1000, PathCallback);
+    ros::Rate loop_rate(10); // 10 Hz -> 0.1 sn
+    while (newPath) {
+        if (!isReach) {
+            // drive functions
+        } else {
+            newPath = 0;
+        }
+        loop_rate.sleep();
+    }
+    ros::spin();
     return 0;
 }
 
