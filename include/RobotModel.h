@@ -67,14 +67,13 @@ private:
 
 class KinematicModel {
 public:
-    explicit KinematicModel(float x, float y, float v, float yaw);
-    struct state {
+    struct state{
         float x;
         float y;
         float v;
         float yaw;
-    };
-    void UpdateStates(float accel, float delta);
+    } robot_state;
+    void UpdateStates(struct state *st, float speed, float delta);
     float NormalizeAngle(float angle);
     float SpeedController(float vel_d, float vel_c);
     std::vector<float> KinematicController(struct state st, std::vector<float> cx, std::vector<float> cy, std::vector<float> cyaw, uint idx_last);

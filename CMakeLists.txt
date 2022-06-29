@@ -9,6 +9,7 @@ set(CMAKE_BUILD_TYPE Release)
 find_package(
         catkin REQUIRED COMPONENTS
         geometry_msgs
+        visualization_msgs
         nav_msgs
         sensor_msgs
         roscpp
@@ -28,15 +29,7 @@ include_directories(
         ${catkin_INCLUDE_DIRS}
         ${OMPL_INCLUDE_DIRS}
         ${EIGEN3_INCLUDE_DIR}
-)
-
-add_message_files(
-  FILES
-)
-
-generate_messages(
-  DEPENDENCIES
-  std_msgs
+        ${LAPACK_INCLUDE_DIRS}
 )
 
 catkin_package(
@@ -44,6 +37,7 @@ catkin_package(
         roscpp
         geometry_msgs
         message_runtime
+        visualization_msgs
         nav_msgs
         rospy
         std_msgs
@@ -58,6 +52,8 @@ set(
         src/main.cpp
         src/RobotDynamicModel.cpp
         src/RobotKinematicModel.cpp
+        src/CubicSpliner.cpp
+        src/CubicSpline2D.cpp
 )
 
 add_executable(${PROJECT_NAME} ${sources})
@@ -66,4 +62,5 @@ target_link_libraries(
         ${PROJECT_NAME}
         ${catkin_LIBRARIES}
         ${OMPL_LIBRARIES}
+        ${LAPACK_LIBRARIES}
 )

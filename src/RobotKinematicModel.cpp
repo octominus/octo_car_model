@@ -4,25 +4,19 @@
 
 #include "RobotModel.h"
 
-KinematicModel::KinematicModel(float x, float y, float v, float yaw) {
-    _state.x = x;
-    _state.y = y;
-    _state.v = v;
-    _state.yaw = yaw;
-}
-
-void KinematicModel::UpdateStates(float accel, float delta) {
+void KinematicModel::UpdateStates(struct state *st, float speed, float delta) {
     if (delta > _steer.max_r) {
         delta = _steer.max_r;
     } else if (delta < -_steer.max_r) {
         delta = -_steer.max_r;
     }
 
-    _state.x += _state.v * std::cos(_state.yaw) * _T_s;
-    _state.y += _state.v * std::sin(_state.yaw) * _T_s;
-    _state.yaw += (_state.v / _car_wb) * std::tan(delta) * _T_s;
-    _state.yaw = NormalizeAngle(_state.yaw);
-    _state.v += accel * _T_s;
+    st->x += st->v * std::cos(st->yaw) * _T_s;
+    st->y += st->v * std::sin(st->yaw) * _T_s;
+    st->yaw += (st->v / _car_wb) * std::tan(delta) * _T_s;
+    st->yaw = NormalizeAngle(st->yaw);
+    st->v = speed;
+    std::cout << "Speed: " << st->v << std::endl;
 }
 
 float KinematicModel::NormalizeAngle(float angle) {
@@ -71,8 +65,6 @@ std::vector<float> KinematicModel::CalculateTargetIndex(struct state st, std::ve
     f_array d = xt::hypot(dx, dy);
     f_array target_idx = xt::argmin(d);
     float target_index = target_idx(0);
-    std::cout << "Index array: " << target_idx << std::endl;
-    std::cout << "Index: " << target_index << std::endl;
     float front_axle_vec_x = -cos(st.yaw + (PI / 2));
     float front_axle_vec_y = -sin(st.yaw + (PI / 2));
     float error_front_axle = (dx(target_index) * front_axle_vec_x) + (dy(target_index) * front_axle_vec_y);
