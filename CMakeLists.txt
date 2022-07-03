@@ -45,6 +45,7 @@ catkin_package(
         DEPENDS
         EIGEN3
         LAPACK
+        cppad
 )
 
 set(
@@ -63,4 +64,22 @@ target_link_libraries(
         ${catkin_LIBRARIES}
         ${OMPL_LIBRARIES}
         ${LAPACK_LIBRARIES}
+)
+
+add_executable(
+	octo_car_mpc 
+    src/MPCModel.cpp
+)
+
+target_link_libraries(
+	octo_car_mpc 
+	${catkin_LIBRARIES}
+    ${EIGEN3_LIBRARIES}
+    ${LAPACK_LIBRARIES}
+)
+
+catkin_install_python(
+  PROGRAMS 
+  scripts/MPC.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

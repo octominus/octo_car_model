@@ -75,7 +75,6 @@ public:
     } robot_state;
     void UpdateStates(struct state *st, float speed, float delta);
     float NormalizeAngle(float angle);
-    float SpeedController(float vel_d, float vel_c);
     std::vector<float> KinematicController(struct state st, std::vector<float> cx, std::vector<float> cy, std::vector<float> cyaw, uint idx_last);
     std::vector<float> CalculateTargetIndex(struct state st, std::vector<float> cx, std::vector<float> cy);
 private:
@@ -83,11 +82,10 @@ private:
     struct state _state;
     float _T_s = 0.1; // seconds
     float _car_wb = 3.6; // meters
-    float _cntrl_gain = 0.5;
-    float _speed_kp = 1.0;
+    float _cntrl_gain = 2.0;
+    float _delta_kp = 2.0; // 7.0
     struct {
-        float max_d = 480.0; // angle degree
-        float max_r = max_d / (PI / 180);
+        float max_d = (720.0 / 180.0) * PI; // angle degree
         float ratio = 20.0;
     } _steer;
 };

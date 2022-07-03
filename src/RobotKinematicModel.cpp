@@ -5,18 +5,21 @@
 #include "RobotModel.h"
 
 void KinematicModel::UpdateStates(struct state *st, float speed, float delta) {
-    if (delta > _steer.max_r) {
-        delta = _steer.max_r;
-    } else if (delta < -_steer.max_r) {
-        delta = -_steer.max_r;
+    if (delta > _steer.max_d) {
+        delta = _steer.max_d;
+    } else if (delta < -_steer.max_d) {
+        delta = -_steer.max_d;
     }
+    delta = delta / _steer.ratio;
 
     st->x += st->v * std::cos(st->yaw) * _T_s;
     st->y += st->v * std::sin(st->yaw) * _T_s;
     st->yaw += (st->v / _car_wb) * std::tan(delta) * _T_s;
     st->yaw = NormalizeAngle(st->yaw);
     st->v = speed;
-    std::cout << "Speed: " << st->v << std::endl;
+    // std::cout << "Car Yaw: " << st->yaw << std::endl;
+    // std::cout << "Steering Angle: " << delta << std::endl;
+    // std::cout << "Speed: " << st->v << std::endl;
 }
 
 float KinematicModel::NormalizeAngle(float angle) {
@@ -30,10 +33,6 @@ float KinematicModel::NormalizeAngle(float angle) {
     return angle;
 }
 
-float KinematicModel::SpeedController(float vel_d, float vel_c) {
-    return _speed_kp * (vel_d - vel_c);
-}
-
 std::vector<float> KinematicModel::KinematicController(struct state st ,std::vector<float> cx, std::vector<float> cy, std::vector<float> cyaw, uint idx_last) {
     std::vector<float> curr_tar_indx_error = CalculateTargetIndex(st, cx, cy);
     uint curr_target_index = static_cast<uint>(curr_tar_indx_error[0]);
@@ -43,10 +42,11 @@ std::vector<float> KinematicModel::KinematicController(struct state st ,std::vec
         curr_target_index = idx_last;
     }
 
-    float theta_e = NormalizeAngle(cyaw[curr_target_index] - st.yaw);
-    float theta_d = atan2(_cntrl_gain * error_front_axle, st.v);
-    float delta = theta_e + theta_d;
-    return {delta, curr_tar_indx_error[0]};
+    float theta_e = NormalizeAngle(cyaw[curr_target_index] - st.yaw); // heading
+    float theta_d = atan2(_cntrl_gain * error_front_axle, st.v); // cross track
+    float theta_d_err = error_front_axle;
+    float delta = 20 * _delta_kp * (theta_e + theta_d);
+    return {delta, curr_tar_indx_error[0], theta_e, theta_d_err};
 }
 
 std::vector<float> KinematicModel::CalculateTargetIndex(struct state st, std::vector<float> cx, std::vector<float> cy) {
