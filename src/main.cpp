@@ -67,20 +67,20 @@ visualization_msgs::Marker markerDefine(float x, float y, float yaw) {
     marker.action = visualization_msgs::Marker::ADD;
     marker.pose.position.x = x;
     marker.pose.position.y = y;
-    marker.pose.position.z = 0.2;
+    marker.pose.position.z = 0.5;
     marker.pose.orientation.x = 0.0;
     marker.pose.orientation.y = 0.0;
     marker.pose.orientation.z = 0.0;
     marker.pose.orientation.w = yaw;
-    marker.scale.x = 3;
-    marker.scale.y = 3;
-    marker.scale.z = 3;
+    marker.scale.x = 2.0;
+    marker.scale.y = 2.0;
+    marker.scale.z = 2.0;
     marker.color.a = 1.0; // Don't forget to set the alpha!
     marker.color.r = 0.0;
     marker.color.g = 1.0;
-    marker.color.b = 0.0;
+    marker.color.b = 1.0;
     //only if using a MESH_RESOURCE marker type:
-    //marker.mesh_resource = "package://pr2_description/meshes/base_v0/base.dae";
+    //marker.mesh_resource = "package://octo_car_model/meshes/tir.dae";
     return marker;
 }
 
@@ -88,6 +88,7 @@ int main(int argc, char **argv) {
     bool isNotReach = 0, isInit = 0;
     float index_l;
     float index_t;
+    float last_start_point = 0.0;
     std::vector<std::vector<float>> result;
     visualization_msgs::Marker robot_marker;
     nav_msgs::Path car_path;
@@ -97,6 +98,12 @@ int main(int argc, char **argv) {
     float des_vel = 10.0; // m/s
     DynamicModel robot_dynamic;
     KinematicModel robot_kinematic;
+    KinematicModel robot_kinematic_last;
+
+    robot_kinematic_last.robot_state.x = 0.0;
+    robot_kinematic_last.robot_state.y = 0.0;
+    robot_kinematic_last.robot_state.yaw = 1.0;
+    robot_kinematic_last.robot_state.v = 0.0;
 
     ros::init(argc, argv, "octo_car_model");
     std::cout << "Robot drive node status: OK!" << std::endl;
@@ -114,15 +121,16 @@ int main(int argc, char **argv) {
             std::vector<float> x_points = getPathPoints(exact_path, 'x');
             std::vector<float> y_points = getPathPoints(exact_path, 'y');
             result = CalculateSpline(x_points, y_points, 0.1);
-            robot_kinematic.robot_state.x = 90;
-            robot_kinematic.robot_state.y = 90;
-            robot_kinematic.robot_state.yaw = 0;
-            robot_kinematic.robot_state.v = 0.0;
             robot_marker = markerDefine(robot_kinematic.robot_state.x, robot_kinematic.robot_state.y, robot_kinematic.robot_state.yaw);
             index_l = result[0].size() - 1;
+            robot_kinematic.robot_state.x = robot_kinematic_last.robot_state.x;
+            robot_kinematic.robot_state.y = robot_kinematic_last.robot_state.y;
+            robot_kinematic.robot_state.yaw = robot_kinematic_last.robot_state.yaw;
+            robot_kinematic.robot_state.v = robot_kinematic_last.robot_state.v;
             std::vector<float> _indx_err = robot_kinematic.CalculateTargetIndex(robot_kinematic.robot_state, result[0], result[1]);
             index_t = _indx_err[0];
             isNotReach = index_l > index_t;
+            last_start_point = result[0][0];
             isInit = 1;
         }
         
@@ -146,7 +154,7 @@ int main(int argc, char **argv) {
             car_pose.header.frame_id = "map";
             car_pose.pose.position.x = robot_kinematic.robot_state.x;
             car_pose.pose.position.y = robot_kinematic.robot_state.y;
-            car_pose.pose.position.z = 0.1;
+            car_pose.pose.position.z = 0.3;
             car_pose.pose.orientation.w = robot_kinematic.robot_state.yaw;
             car_path.poses.push_back(car_pose);
             ct_err_pub.publish(ct_err);
@@ -154,8 +162,14 @@ int main(int argc, char **argv) {
             vis_pub.publish(robot_marker);
             car_path_pub.publish(car_path);
         } else {
-            //newPath = 0;
-            //isInit = 0;
+            if (newPath == 1) {
+                newPath = 0;
+                isInit = 0;
+                robot_kinematic_last.robot_state.x = robot_kinematic.robot_state.x;
+                robot_kinematic_last.robot_state.y = robot_kinematic.robot_state.y;
+                robot_kinematic_last.robot_state.yaw = robot_kinematic.robot_state.yaw;
+                robot_kinematic_last.robot_state.v = robot_kinematic.robot_state.v;
+            }
         }
         loop_rate.sleep();
         ros::spinOnce();
